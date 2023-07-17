@@ -1,0 +1,732 @@
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Dago Travel</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+    <link href="assets/img//logo.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.ico" rel="apple-touch-icon" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.min.css"
+    />
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/animations.js"></script>
+    <script src="assets/gsap-public/minified/gsap.min.js"></script>
+    <script src="assets/gsap-public/minified/ScrollTrigger.min.js"></script>
+    <script src="assets/gsap-member/umd/"></script>
+  </head>
+
+  <body>
+    <!-- ======= en tete-nle page ======= -->
+    <section
+      id="topbar"
+      class="d-flex align-items-center fixed-top topbar-transparent"
+    >
+      <div
+        class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start"
+      >
+        <i class="bi bi-phone d-flex align-items-center"
+          ><span id="demo">+261 33 00 283 233</span></i
+        >
+        <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"
+          ><span>Mon-Thu: 07:00 AM - 23:00 PM</span></i
+        >
+        <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"
+          ><span>Fri-Sun: 07:00 AM - 00:00 PM</span></i
+        >
+      </div>
+    </section>
+
+    <!-- ======= barre de navigation bootstrap ===== -->
+    <header
+      id="header"
+      class="fixed-top d-flex align-items-center header-transparent"
+    >
+      <div
+        class="container-fluid container-xl d-flex align-items-center justify-content-between"
+      >
+        <div class="logo lg-container me-auto">
+          <h1 class="logo"><a href="{{ path('app_home') }}">Dago Travel</a></h1>
+          <div class="small-line"></div>
+          <img src="assets/img/logo.png" alt="" class="avion">
+        </div>
+
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+            <li><a class="nav-link scrollto" href="">Hotel</a></li>
+            <li><a class="nav-link scrollto" href="#events">Agence de voyages</a></li>
+            <li><a class="nav-link scrollto" href="https://e-vtc.esanandro.com">Location de voiture</a></li>
+            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- button kely -->
+{% if app.user %}
+  <a href="{{ path('app_logout') }}" class="book-a-table-btn scrollto"
+          >déconnexion</a
+        >
+{% else %}
+  <a href="{{ path('register') }}" class="book-a-table-btn scrollto"
+            >S'Identifier</a
+          >
+{% endif %}
+        
+      </div>
+    </header>
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero">
+      <div class="hero-container">
+        <div
+          id="heroCarousel"
+          data-bs-interval="5000"
+          class="carousel slide carousel-fade"
+          data-bs-ride="carousel"
+        >
+          <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+          <div class="carousel-inner" role="listbox">
+            <!-- Slide 1 -->
+            <div
+              class="carousel-item active"
+              style="background-image: url(https://images.unsplash.com/photo-1488085061387-422e29b40080?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1631&q=80)" 
+            >
+              <div class="carousel-container">
+                <div class="carousel-content">
+                  <h2 class="animate__animated animate__fadeInDown">
+                    <span>Voyagez</span> avec nous
+                  </h2>
+                  <p class="animate__animated animate__fadeInUp">
+                    Trouver ici <strong> vos offres de voyages </strong> sur DagoTravel.
+                  </p>
+                  <div>
+                    <a
+                      href="#menu"
+                      class="btn-menu animate__animated animate__fadeInUp scrollto"
+                      >Nos offres</a
+                    >
+                    <a
+                      href="#book-a-table"
+                      class="btn-book animate__animated animate__fadeInUp scrollto"
+                      >Reservez un hôtel</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div
+              class="carousel-item"
+              style="background-image: url(https://reseauteurs.fr/wp-content/uploads/2018/10/iStock-628453996-1.jpg)"
+            >
+              <div class="carousel-container">
+                <div class="carousel-content">
+                  <h2 class="animate__animated animate__fadeInDown">
+                    Louer directement<span> une voiture</span>
+                  </h2>
+                  <p class="animate__animated animate__fadeInUp">
+                    Chercher une agence de location de voiture sur <strong>Madatravel</strong>,
+                  </p>
+                  <p class="animate__animated animate__fadeInUp">
+                    <strong>Facile, raide et reactif</strong>,
+                  </p>
+                  <div>
+                    <a
+                      href="#menu"
+                      class="btn-menu animate__animated animate__fadeInUp scrollto"
+                      > location par agence</a
+                    >
+                    <a
+                      href="#book-a-table"
+                      class="btn-book animate__animated animate__fadeInUp scrollto"
+                      >Location par lieu</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div
+              class="carousel-item"
+              style="background-image: url(https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80)"
+            >
+              <div class="carousel-container">
+                <div class="carousel-content">
+                  <h2 class="animate__animated animate__fadeInDown">
+                    Trouver l'hebergement, l'hotel <span>de votre choix</span>
+                  </h2>
+                  <p class="animate__animated animate__fadeInUp">
+                    Reservez votre<strong>hotêl</strong> tout en choissant
+                    votre agence de voyage.
+                  </p>
+                  <div>
+                    <a
+                      href="#menu"
+                      class="btn-menu animate__animated animate__fadeInUp scrollto"
+                      >Composer les services</a
+                    >
+                    <a
+                      href="#book-a-table"
+                      class="btn-book animate__animated animate__fadeInUp scrollto"
+                      >Voir les vacances</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a
+            class="carousel-control-prev"
+            href="#heroCarousel"
+            role="button"
+            data-bs-slide="prev"
+          >
+            <span
+              class="carousel-control-prev-icon bi bi-chevron-left"
+              aria-hidden="true"
+            ></span>
+          </a>
+
+          <a
+            class="carousel-control-next"
+            href="#heroCarousel"
+            role="button"
+            data-bs-slide="next"
+          >
+            <span
+              class="carousel-control-next-icon bi bi-chevron-right"
+              aria-hidden="true"
+            ></span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- End Hero -->
+
+    <!-- ====== animated cards ====== -->
+<div class="card-container">
+  <div class="container">
+    <div class="section-title">
+      <h2><span>Destinations</span> en vogue</h2>
+      <p>Options les plus populaires parmi les voyageurs habitant à <strong> Madagascar</strong></p>
+    </div>
+  </div>
+  <div class="carte-meilleur-plat card mb-3 col-md-6">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="assets/img/menu/Paris.jpg" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Paris</h5>
+          <p class="card-text">
+            Découvrez la magie de Paris avec notre agence de voyage ! Plongez dans l'atmosphère romantique de la Ville Lumière, laissez-vous émerveiller par ses monuments emblématiques et explorez ses quartiers pittoresques.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="carte-meilleur-plat card mb-3 col-md-6">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="assets/img/menu/Morondava.jpg" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Morondava</h5>
+          <p class="card-text">Morondava est célèbre pour ses paysages à couper le souffle, dont le plus emblématique est l'avenue des baobabs. Imaginez-vous marchant le long d'une route bordée de majestueux baobabs vieux de plusieurs siècles, créant une ambiance magique et mystique.
+          </p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="carte-meilleur-plat card mb-3 col-md-6">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="assets/img/menu/DS-3.jpg" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Diego Suarez</h5>
+          <p class="card-text">La région de Diego Suarez regorge également de trésors naturels. Vous pourrez explorer le parc national de la Montagne d'Ambre, une réserve forestière luxuriante abritant une faune et une flore exceptionnelles.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="carte-meilleur-plat card mb-3 col-md-6">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="assets/img/menu/Antanarivo.avif" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Antananarivo</h5>
+          <p class="card-text">Antananarivo, souvent appelée "Tana" par les habitants, est nichée au sommet de collines offrant des vues panoramiques à couper le souffle.Antananarivo, la capitale enchanteresse de Madagascar. Préparez-vous à plonger dans l'histoire..</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- End animated cards -->
+              <!-- ======= Events Section ======= -->
+              <section id="events" class="events">
+                <div class="swiper-container max-width-container">
+                  <div class="section-title">
+                    <h2>Laissez nos agences s'occuper de<span> tout ce qui compose vos vacances</span></h2>
+                  </div>
+        
+                  <div class="events-slider swiper">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <div class="row event-item">
+                          <div class="col-lg-6 d-lg-flex align-items-center">
+                            <img
+                              src="https://images.unsplash.com/photo-1591030288156-ededef494ec4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                              class="img-fluid"
+                              alt=""
+                            />
+                          </div>
+                          <div class="col-lg-6 pt-4 pt-lg-0 content">
+                            <h3>Vos noces</h3>
+                            <div class="price">
+                              <p><span>25.000.000 Ar</span></p>
+                            </div>
+                            <p class="fst-italic">                  
+                              Découvrez l'expérience ultime de votre vie avec notre offre spéciale de voyage de noces ! Après avoir célébré votre mariage, laissez-vous emporter dans un voyage romantique et exquis dans des destinations de rêve. Nous vous offrons une occasion unique de créer des souvenirs inoubliables en tant que couple nouvellement marié.
+                            </p>
+                            <ul>
+                              <li><i class="bi bi-check-circle"></i> Food.</li>
+                              <li><i class="bi bi-check-circle"></i> Drinks.</li>
+                              <li>
+                                <i class="bi bi-check-circle"></i> Decorations and party
+                                layout.
+                              </li>
+                            </ul>
+                            <p>
+                              Nous nous assurerons que vos noces soient inoubliables
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End testimonial item -->
+        
+                      <div class="swiper-slide">
+                        <div class="row event-item">
+                          <div class="col-lg-6 d-lg-flex align-items-center">
+                            <img
+                              src="https://images.unsplash.com/photo-1585607344893-43a4bd91169a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                              class="img-fluid"
+                              alt=""
+                            />
+                          </div>
+                          <div class="col-lg-6 pt-4 pt-lg-0 content">
+                            <h3>Vacance pendant les fêtes</h3>
+                            <div class="price">
+                              <p><span>39.000.000 Ar</span></p>
+                            </div>
+                            <p class="fst-italic">
+                              Les vacances sont une période chargée de l'année. Avec toutes les responsabilités liées à l'accueil, les vacances peuvent passer sans beaucoup de plaisir. Passez plus de temps avec votre famille et moins de temps en à vous preoccuper de la partie ennuyeuse.Que ce soit:
+                            </p>
+                            <ul>
+                              <li>
+                                <i class="bi bi-check-circle"></i> les vacances de détente.
+                              </li>
+                              <li>
+                                <i class="bi bi-check-circle"></i> Les grandes vacances.
+                              </li>
+                              <li>
+                                <i class="bi bi-check-circle"></i> Les retraites.
+                              </li>
+                            </ul>
+                            <p>Nous nous assurerons que vos voyage ne soient que plaisir</p>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End testimonial item -->
+        
+                      <div class="swiper-slide">
+                        <div class="row event-item">
+                          <div class="col-lg-6 d-lg-flex align-items-center">
+                            <img
+                              src="https://images.unsplash.com/photo-1545622783-b3e021430fee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=868&q=80"
+                              class="img-fluid"
+                              alt=""
+                            />
+                          </div>
+                          <div class="col-lg-6 pt-4 pt-lg-0 content">
+                            <h3>Vacance de noel</h3>
+                            <div class="price">
+                              <p><span>20.000.000 Ar</span></p>
+                            </div>
+                            <p class="fst-italic">
+                              Découvrez la magie des vacances de Noël avec notre offre spéciale ! Envolez-vous vers des destinations enchanteresses, où la neige scintille et les lumières éclatent. Laissez-nous prendre soin de tous les détails pendant que vous vous détendez et profitez de moments inoubliables avec vos proches. Nous prenons en charge tout votre sejour:
+                            </p>
+                            <ul>
+                              <li><i class="bi bi-check-circle"></i> hebergement.</li>
+                              <li><i class="bi bi-check-circle"></i> les repas.</li>
+                              <li><i class="bi bi-check-circle"></i> voiture de location.</li>
+                            </ul>
+                            <p>
+                              Réservez dès maintenant et laissez-nous transformer vos vacances de Noël en un véritable conte de fées. 
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End testimonial item -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                  </div>
+                </div>
+              </section>
+              <!-- End Events Section -->
+    <!-- ==== Animations mots ==== -->
+
+    <section class="animation-phrases">
+      <div class="phrase-container1">
+        <h1 class="texte1">Qu'attendez-vous !!</h1>
+      </div>
+        <div class="img-container1">
+          <h1 class="title-fade1">Vivez le vacance de vos rêve </h1>
+          <img src="https://images.unsplash.com/photo-1502003148287-a82ef80a6abc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fHZveWFnZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Image 1">
+          <img src="https://images.unsplash.com/photo-1526495124232-a04e1849168c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="Image 2">
+          <img src="https://images.unsplash.com/photo-1551918120-9739cb430c6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="Image 3">
+        </div>
+        <div class="img-container2">
+          <h1 class="title-fade2">Passez une experience inoubliable </h1>
+          <img src="https://images.unsplash.com/photo-1557854729-a9a44d0be2ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=379&q=80" alt="Image 1">
+          <img src="https://images.unsplash.com/photo-1519160558534-579f5106e43f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="Image 2">
+          <img src="https://images.unsplash.com/photo-1574260031597-bcd9eb192b4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="Image 3">
+        </div>
+        <div class="img-container3">
+          <h1 class="title-fade3">Visitez des endroits paradisiaques</h1>
+          <img src="https://images.unsplash.com/photo-1549144511-f099e773c147?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="Image 1">
+          <img src="https://images.unsplash.com/photo-1516939884455-1445c8652f83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="Image 2">
+          <img src="https://images.unsplash.com/photo-1501554728187-ce583db33af7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="Image 3">
+        </div>
+        <div class="phrase-container2">
+          <h1 class="texte2">Reservez de suite.</h1>
+        </div>
+    </section>
+
+    <!-- ==== Animations mots ==== -->
+    <main id="main">
+      <!-- ======= evaluation des clients Section ======= -->
+      <section id="testimonials" class="testimonials" style="background-image:url('./assets/img/testimonials/testimonials-bg.jpg');">
+        <div class="container position-relative max-width-container">
+          <div
+            class="testimonials-slider swiper"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <img
+                    src="assets/img/testimonials/bachir.jpg"
+                    class="testimonial-img"
+                    alt=""
+                  />
+                  <h3>Bechir B</h3>
+                  <h4>Ceo &amp; Founder</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    The best Website in Madagascar. Very good reception, great experience,
+                    appetizing presentations, to be repeated and I strongly
+                    advise to all lovers of traveling.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+              <!-- fin evaluation item -->
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <img
+                    src="assets/img/testimonials/sywar.jpg"
+                    class="testimonial-img"
+                    alt=""
+                  />
+                  <h3>Sywar Jmayel</h3>
+                  <h4>Designer</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Freshness, variety, quality and impeccable service I will
+                    certainly come back.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <img
+                    src="assets/img/testimonials/rahma.jpg"
+                    class="testimonial-img"
+                    alt=""
+                  />
+                  <h3>Rahma Rh</h3>
+                  <h4>Store Owner</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                   For adventure lovers
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <img
+                    src="assets/img/testimonials/oussama.jpg"
+                    class="testimonial-img"
+                    alt=""
+                  />
+                  <h3>Oussama Hamed</h3>
+                  <h4>Freelancer</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <img
+                    src="assets/img/testimonials/mehdi.jpg"
+                    class="testimonial-img"
+                    alt=""
+                  />
+                  <h3>Mehdi Jelassi</h3>
+                  <h4>Entrepreneur</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    For years the quality is excellent this place does not
+                    change but the menu is constantly enriched.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+      <!-- Fin du Section d'evaluation-->
+
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="contact">
+        <div class="container max-width-container">
+          <div class="section-title">
+            <h2><span>Contact</span> Us</h2>
+            <p>Show Our Location Map.</p>
+          </div>
+        </div>
+
+        <div class="container mt-5 max-width-container">
+          <div class="info-wrap">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 info">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>Rue circulaire Ambanidia<br />101 Tananarivo</p>
+              </div>
+
+              <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+                <i class="bi bi-clock"></i>
+                <h4>Open Hours:</h4>
+                <p>Monday-Thursday:<br />12:00 AM - 23:00 PM</p>
+                <p>Friday-Sunday:<br />12:00 AM - 00:00 PM</p>
+              </div>
+
+              <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>DagoTravel@gmail.com</p>
+              </div>
+
+              <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>(+261) 33 00 283 233</p>
+              </div>
+            </div>
+          </div>
+
+          <form role="form" class="email-form">
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  id="name"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  id="email"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group mt-3">
+              <input
+                type="text"
+                class="form-control"
+                name="subject"
+                id="subject"
+                placeholder="Subject"
+                required
+              />
+            </div>
+            <div class="form-group mt-3">
+              <textarea
+                class="form-control"
+                name="message"
+                rows="5"
+                placeholder="Message"
+                required
+              ></textarea>
+            </div>
+            <div class="my-3">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">
+                Your message has been sent. Thank you!
+              </div>
+            </div>
+            <div class="text-center">
+              <button type="reset">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <!-- End Contact Section -->
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="container">
+        <h3></h3>
+        <p>
+          Dago Travel est une plateforme qui met en relation 3 services .
+        </p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/pastacositn/" class="facebook"
+            ><i class="bx bxl-facebook"></i
+          ></a>
+          <a href="https://www.instagram.com/pastacositn/" class="instagram"
+            ><i class="bx bxl-instagram"></i
+          ></a>
+        </div>
+        <div class="copyright">
+          &copy; Copyright <strong><span>Dago Travel </span></strong
+          >. All Rights Reserved
+        </div>
+        <div class="credits">
+          Designed by
+          <a href="https://github.com/ahmed-aouinti" target="_blank"
+            >Hack 4</a
+          >
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+      <!-- button retour vers le haut -->
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
+  </body>
+</html>
+{% endblock %}

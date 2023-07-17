@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="assets/css/styl.css">
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet" />
+    <script src="assets/gsap-public/minified/gsap.min.js"></script>
+</head>
+<body>
+    <div class="container" id="container">
+
+        <div class="form-container register-container">
+            <form action="{{ path('register') }}" method="POST">
+                <h1>Inscrivez-vous</h1>
+                <input type="text" name="name" placeholder="Name">
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+                <button type="submit">S'inscrire</button>
+                <span>ou vous avez déjà un compte?</span>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="lni lni-facebook-fill"></i></a>
+                    <a href="#" class="social"><i class="lni lni-google"></i></a>
+                    <a href="#" class="social"><i class="lni lni-linkedin-original"></i></a>
+                </div>
+                
+            </form>
+        </div>
+        <div class="form-container login-container">
+            <form action="{{ path('app_login') }}"method="post">
+  
+                    {# {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %} #}
+
+                    {# {% if app.user %}
+                        <div class="mb-3">
+                            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                        </div>
+                    {% endif %} #}
+
+                <h1>Connectez-vous.</h1>
+                 <input type="email"  name="email" placeholder="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                <input type="password" name="password" id="inputPassword" placeholder="Password" class="form-control" autocomplete="current-password" required>
+
+                <input type="hidden" name="_csrf_token"
+                    value="{{ csrf_token('authenticate') }}"
+                >     
+                <div class="content">
+                    <div class="checkbox">
+                        <input type="checkbox" name="checkbox" id="checkbox">
+                        <label>Remember me</label>
+                    </div>
+                    <div class="pass-link">
+                        <a href="#">Mot de passe oublié?</a>
+                    </div>
+                </div>
+                <button type="submit">Se connecter</button>
+                <span>Vous n'avez pas encore de compte?</span>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="lni lni-facebook-fill"></i></a>
+                    <a href="#" class="social"><i class="lni lni-google"></i></a>
+                    <a href="#" class="social"><i class="lni lni-linkedin-original"></i></a>
+                </div>
+            </form>
+        </div>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                 <div class="video-container">
+                    <div id="video-container">
+                    <video id="video1" autoplay muted loop>
+                        <source src="assets/img/voyage_video.mp4" type="video/mp4">
+                        Votre navigateur ne prend pas en charge la balise vidéo.
+                    </video>
+                    <video id="video2" autoplay muted loop>
+                        <source src="assets/img/voyage_video2.mp4" type="video/mp4">
+                        Votre navigateur ne prend pas en charge la balise vidéo.
+                    </video>
+                    <video id="video3" autoplay muted loop>
+                        <source src="assets/img/voyage_video3.mp4" type="video/mp4">
+                        Votre navigateur ne prend pas en charge la balise vidéo.
+                    </video>
+                </div>
+                <div class="overlay-panel overlay-left">
+                    <h1 class="title">Bienvenue</h1>
+                    <p>Si vous avez déjà un compte, connectez-vous ici</p>
+                    <button class="ghost" id="login">Se connecter
+                        <i class="lni lni-arrow-left login"></i>
+                    </button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1 class="title">Inscrivez-vous pour voir plus</h1>
+                    <p>Si vous n'avez pas encore de compte, rejoignez-nous.</p>
+                    <button class="ghost" id="register">Register
+                    <i class="lni lni-arrow-right register"></i>
+                    </button>
+                </div>
+            </div>
+         </div>
+         </div>
+
+<script src="assets/js/form.js"></script>
+</body>
+</html>

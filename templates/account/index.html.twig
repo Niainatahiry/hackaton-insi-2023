@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block body %}
+    <h1>Mon compte</h1>
+    <p>Bienvenue {{ app.user.name }} dans votre compte, c'est ici que vous gérez votre service!!!</p>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="/admin">Vous-êtes admin</a>
+        {% else %}
+        {% if is_granted('ROLE_PRESTATAIRE') %}
+            <h3>Vous-êtes un admin d'un Hotel</h3>
+            <a href="{{ path('app_service') }}">- Ajout service<a><br>
+            <a href="">- Modification<a><br>
+            <a href="">- Voir reservation: annulation/comfirmation<a><br>
+        {% else %}
+        </p>C'est dans cette espace que vous allez pouvoir passer votre réservation!!</p>
+            - <a href="">Reserver une hotel</a><br>
+            - <a href="">Reserver une voiture</a><br>
+            - <a href="">Mofidifer votre mot de passe</a><br>
+            - <a href="">Gerer votre adresse</a><br>
+        {% endif %}
+    {% endif %}
+<br><br><br>
+    <a href="{{ path('app_logout') }}">Logout</a>
+{% endblock %}

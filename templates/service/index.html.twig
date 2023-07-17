@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ServiceController!{% endblock %}
+
+{% block body %}
+<a href="{{ path('app_account') }}">Retour<a><br>
+{% if app.user.hebergements| length == 0 %}
+        Putain , remplir ceformulaire pour qu'on peut afficher au publique
+    {% else %}
+
+    {% endif %}    
+{% endblock %}
